@@ -8,18 +8,13 @@ import {
   Stack,
   Spacer,
   HStack,
+  Image,
+  VStack,
 } from "@chakra-ui/react";
 import { BsTwitter } from "react-icons/bs";
 import { BiRefresh } from "react-icons/bi";
 import { useState } from "react";
-
-const tweets = [
-  "I'm a full-stack developer, and I'm learning React.js",
-  "Metax Is the best company ever",
-  "Test2",
-  "Test3",
-  "Test4",
-];
+import { tweets } from "../configs/tweets.js";
 
 export default function Home() {
   const [tweet, setTweet] = useState(tweets[0]);
@@ -28,13 +23,14 @@ export default function Home() {
   }
 
   return (
-    <Flex
+    <VStack
       align="center"
       justify="center"
       h="100vh"
       w="full"
-      bgGradient="linear(to-r, #9cecfb, #65c7f7, #0052d4)"
+      bgGradient="linear(to-r, #00c6ff, #0072ff)"
     >
+      <Image src="logo.png" />
       <Flex
         flexDir="column"
         width={1000}
@@ -82,7 +78,7 @@ export default function Home() {
             <Button
               leftIcon={<BsTwitter />}
               as="a"
-              href={`https://twitter.com/intent/tweet?text=${tweet}`}
+              href={`https://twitter.com/intent/tweet?text=${tweet}&hashtags=metaxlauncher,metaxlaunchertr&url=http://metaxlauncher.com`}
               target="_blank"
               maxW={100}
               maxH={50}
@@ -105,6 +101,6 @@ export default function Home() {
           </HStack>
         </Stack>
       </Flex>
-    </Flex>
+    </VStack>
   );
 }
